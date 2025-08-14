@@ -1,0 +1,15 @@
+# Frontend (React) Dockerfile
+FROM node:20
+
+WORKDIR /app
+
+COPY frontend/package*.json ./
+RUN npm install
+
+COPY frontend/ .
+
+# Expose port
+EXPOSE 3000
+
+# Start React app
+CMD ["npm", "start"]

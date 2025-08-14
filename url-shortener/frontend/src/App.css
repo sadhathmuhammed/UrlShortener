@@ -1,0 +1,25 @@
+.app-container {
+  text-align: center;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+input {
+  padding: 10px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+  margin-top: 20px;
+}

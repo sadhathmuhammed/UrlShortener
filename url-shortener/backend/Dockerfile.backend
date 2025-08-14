@@ -1,0 +1,18 @@
+FROM python:3.11
+
+# Install Poetry
+RUN pip install --no-cache-dir poetry
+
+WORKDIR /app
+
+# Copy only dependency files first for better caching
+COPY pyproject.toml poetry.lock ./
+
+# Install dependencies (no virtualenv because container is isolated)
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-root --no-interaction --no-ansi
+
+# Copy the rest of the backend code
+COPY . .
+
+EXPOSE 8000
